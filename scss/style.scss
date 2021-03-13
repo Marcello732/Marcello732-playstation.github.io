@@ -1,0 +1,327 @@
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+$dark: #000000;
+$light: #f4f4f9;
+$middle-color: #808080;
+
+// #fca311
+
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+body{
+    background-color: $dark;
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-auto-rows: minmax(20vh, auto);
+        grid-template-areas: 
+            ". . . . . . header-right header-right header-right header-right"
+            ". header-title header-title header-title header-title header-title header-right header-right header-right header-right"
+            ". header-subtitle header-subtitle header-subtitle header-subtitle header-subtitle header-right header-right header-right header-right"
+            "header-left header-left header-left header-left header-left header-left header-right header-right header-right header-right"
+            ". . . . arrow arrow header-right header-right header-right header-right"
+            ". . . . . . section1-right section1-right section1-right section1-right"
+            ". section1-title section1-title section1-title section1-title section1-title section1-right section1-right section1-right section1-right"
+            ". section1-content section1-content section1-content section1-content section1-content section1-right section1-right section1-right section1-right"
+            ". section1-content section1-content section1-content section1-content section1-content section1-right section1-right section1-right section1-right"
+            "section1-left section1-left section1-left section1-left section1-left section1-left section1-right section1-right section1-right section1-right"
+            ". . . . . . section2-right section2-right section2-right section2-right"
+            ". section2-title section2-title section2-title section2-title section2-title section2-right section2-right section2-right section2-right"
+            ". section2-content section2-content section2-content section2-content section2-content section2-right section2-right section2-right section2-right"
+            ". section2-content section2-content section2-content section2-content section2-content section2-right section2-right section2-right section2-right"
+            "section2-left section2-left section2-left section2-left section2-left section2-left section2-right section2-right section2-right section2-right"
+            ". . . . . . section3-right section3-right section3-right section3-right"
+            ". section3-title section3-title section3-title section3-title section3-title section3-right section3-right section3-right section3-right"
+            ". section3-content section3-content section3-content section3-content section3-content section3-right section3-right section3-right section3-right"
+            ". section3-content section3-content section3-content section3-content section3-content section3-right section3-right section3-right section3-right"
+            "section3-left section3-left section3-left section3-left section3-left section3-left section3-right section3-right section3-right section3-right"
+            ". . . . . . section4-right section4-right section4-right section4-right"
+            ". section4-title section4-title section4-title section4-title section4-title section4-right section4-right section4-right section4-right"
+            ". section4-content section4-content section4-content section4-content section4-content section4-right section4-right section4-right section4-right"
+            ". section4-content section4-content section4-content section4-content section4-content section4-right section4-right section4-right section4-right"
+            "section4-left section4-left section4-left section4-left section4-left section4-left section4-right section4-right section4-right section4-right"
+            ". . . . . . section5-right section5-right section5-right section5-right"
+            ". section5-title section5-title section5-title section5-title section5-title section5-right section5-right section5-right section5-right"
+            ". section5-content section5-content section5-content section5-content section5-content section5-right section5-right section5-right section5-right"
+            ". section5-content section5-content section5-content section5-content section5-content section5-right section5-right section5-right section5-right"
+            "section5-left section5-left section5-left section5-left section5-left section5-left section5-right section5-right section5-right section5-right"
+            ". . . . . . section6-right section6-right section6-right section6-right"
+            ". section6-title section6-title section6-title section6-title section6-title section6-right section6-right section6-right section6-right"
+            ". section6-content section6-content section6-content section6-content section6-content section6-right section6-right section6-right section6-right"
+            ". section6-content section6-content section6-content section6-content section6-content section6-right section6-right section6-right section6-right"
+            "section6-left section6-left section6-left section6-left section6-left section6-left section6-right section6-right section6-right section6-right";
+
+        .slider{
+            width: 5%;
+            height: 100vh;
+            position: fixed;
+            z-index: 1000;
+
+            @include flex();
+
+            .slider-sections-parent{
+                width: 0.2%;
+                height: 25%;
+                position: fixed;
+
+                .header-section, .section1, .section2, .section3, .section4, .section5, .section6{
+                    width: 100%;
+                    height: calc(100%/6);
+                    background-color: $middle-color;
+                }
+                .header-section{
+                    background-color: $light;
+                }
+            }
+        }
+        .hamburger_parent{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 10vh;
+            height: 10vh;
+            @include flex();
+            z-index: 10000000;
+
+            .hamburger{
+                width: 3vh;
+                height: 3vh;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+                position: relative;
+
+                .hamburgerTopLine, .hamburgerMiddleLine, .hamburgerBottomLine{
+                    position: absolute;
+                    width: 100%;
+                    height: 15%;
+                    background-color: $dark;
+                }
+                .hamburgerTopLine{
+                    top: 0;
+                }
+                .hamburgerMiddleLine{
+                    top: calc(85%/2);
+                }
+                .hamburgerBottomLine{
+                    bottom: 0;
+                }
+                // .hamburger_box{
+                //     width: 100%;
+                //     height: 20px;
+                //     position: absolute;
+                //     top: 0;
+                //     left: 0;
+                //     @include flex();
+                //     position: relative;
+
+                //     &::before{
+                //         content: '';
+                //         display: inline-block;
+                //         position: absolute;
+                //         top: 0;
+                //         left: 0;
+                //         width: 100%;
+                //         height: 20%;
+                //         background-color: $dark;
+                //     }
+                //     &::after{
+                //         content: '';
+                //         display: inline-block;
+                //         position: absolute;
+                //         width: 100%;
+                //         height: 20%;
+                //         background-color: $dark;
+                //         bottom: 0;
+                //         left: 0;
+                //     }
+                // }
+            }
+            .hamburger--active{
+                animation: rotateHamburger .5s ease-in-out;
+                animation-fill-mode: both;
+            }
+        }
+        .navigation{
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 10vh;
+            width: 40vw;
+            z-index: 1000000;
+            @include flex();
+            background-color: $middle-color;
+            opacity: 0;
+            animation: opacityNavigation .5s ease-in-out;
+
+            ul{
+                list-style: none;
+                width: 80%;
+
+                li{
+                    display: inline-block;
+                    margin: 4%;
+
+                    span{
+                        text-decoration: none;
+                        color: $dark;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+        .header-title{
+            grid-area: header-title;
+            color: $light;
+            font-size: 3rem;
+            font-weight: bold;
+
+            &::after{
+                content: '';
+                display: inline-block;
+                transform: translateY(-30%);
+                margin-right: 95%;
+                width: 5%;
+                height: 3%;
+                background-color: $light;
+            }
+        }
+        .header-subtitle{
+            grid-area: header-subtitle;
+            color: $light;
+            font-size: 1rem;
+            padding-right: 10%;
+        }
+        .arrow{
+            grid-area: arrow;
+            @include flex();
+        }
+        .header-left{
+            grid-area: header-left;
+        }
+        .header-right{
+            grid-area: header-right;
+            @include flex();
+            background-color: $light;
+
+            img{
+                width: 80%;
+            }
+        }
+        .section1-title{
+            grid-area: section1-title;
+            background-color: aqua;
+        }
+        .section1-content{
+            grid-area: section1-content;
+            background-color: bisque;
+        }
+        .section1-left{
+            grid-area: section1-left;
+        }
+        .section1-right{
+            grid-area: section1-right;
+            @include flex();
+        }
+        .section2-title{
+            grid-area: section2-title;
+            background-color: brown;
+        }
+        .section2-content{
+            grid-area: section2-content;
+            background-color: cadetblue;
+        }
+        .section2-left{
+            grid-area: section2-left;
+        }
+        .section2-right{
+            grid-area: section2-right;
+            @include flex();
+        }
+        .section3-title{
+            grid-area: section3-title;
+            background-color: rgb(61, 42, 165);
+        }
+        .section3-content{
+            grid-area: section3-content;
+            background-color: rgb(160, 95, 149);
+        }
+        .section3-left{
+            grid-area: section3-left;
+        }
+        .section3-right{
+            grid-area: section3-right;
+            @include flex();
+        }
+        .section4-title{
+            grid-area: section4-title;
+            background-color: rgb(61, 42, 165);
+        }
+        .section4-content{
+            grid-area: section4-content;
+            background-color: rgb(160, 95, 149);
+        }
+        .section4-left{
+            grid-area: section4-left;
+        }
+        .section4-right{
+            grid-area: section4-right;
+            @include flex();
+        }
+        .section5-title{
+            grid-area: section5-title;
+            background-color: rgb(46, 165, 42);
+        }
+        .section5-content{
+            grid-area: section5-content;
+            background-color: rgb(156, 160, 95);
+        }
+        .section5-left{
+            grid-area: section5-left;
+        }
+        .section5-right{
+            grid-area: section5-right;
+            @include flex();
+        }
+        .section6-title{
+            grid-area: section6-title;
+            background-color: rgb(165, 42, 149);
+        }
+        .section6-content{
+            grid-area: section6-content;
+            background-color: rgb(160, 95, 95);
+        }
+        .section6-left{
+            grid-area: section6-left;
+        }
+        .section6-right{
+            grid-area: section6-right;
+            @include flex();
+        }
+    }
+}
+//animacje start
+@keyframes rotateHamburger{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes opacityNavigation{
+    100%{
+        opacity: 1;
+    }
+}

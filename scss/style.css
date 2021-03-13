@@ -1,0 +1,498 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
+
+body {
+  background-color: #000000;
+}
+
+body .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  grid-auto-rows: minmax(20vh, auto);
+      grid-template-areas: ". . . . . . header-right header-right header-right header-right" ". header-title header-title header-title header-title header-title header-right header-right header-right header-right" ". header-subtitle header-subtitle header-subtitle header-subtitle header-subtitle header-right header-right header-right header-right" "header-left header-left header-left header-left header-left header-left header-right header-right header-right header-right" ". . . . arrow arrow header-right header-right header-right header-right" ". . . . . . section1-right section1-right section1-right section1-right" ". section1-title section1-title section1-title section1-title section1-title section1-right section1-right section1-right section1-right" ". section1-content section1-content section1-content section1-content section1-content section1-right section1-right section1-right section1-right" ". section1-content section1-content section1-content section1-content section1-content section1-right section1-right section1-right section1-right" "section1-left section1-left section1-left section1-left section1-left section1-left section1-right section1-right section1-right section1-right" ". . . . . . section2-right section2-right section2-right section2-right" ". section2-title section2-title section2-title section2-title section2-title section2-right section2-right section2-right section2-right" ". section2-content section2-content section2-content section2-content section2-content section2-right section2-right section2-right section2-right" ". section2-content section2-content section2-content section2-content section2-content section2-right section2-right section2-right section2-right" "section2-left section2-left section2-left section2-left section2-left section2-left section2-right section2-right section2-right section2-right" ". . . . . . section3-right section3-right section3-right section3-right" ". section3-title section3-title section3-title section3-title section3-title section3-right section3-right section3-right section3-right" ". section3-content section3-content section3-content section3-content section3-content section3-right section3-right section3-right section3-right" ". section3-content section3-content section3-content section3-content section3-content section3-right section3-right section3-right section3-right" "section3-left section3-left section3-left section3-left section3-left section3-left section3-right section3-right section3-right section3-right" ". . . . . . section4-right section4-right section4-right section4-right" ". section4-title section4-title section4-title section4-title section4-title section4-right section4-right section4-right section4-right" ". section4-content section4-content section4-content section4-content section4-content section4-right section4-right section4-right section4-right" ". section4-content section4-content section4-content section4-content section4-content section4-right section4-right section4-right section4-right" "section4-left section4-left section4-left section4-left section4-left section4-left section4-right section4-right section4-right section4-right" ". . . . . . section5-right section5-right section5-right section5-right" ". section5-title section5-title section5-title section5-title section5-title section5-right section5-right section5-right section5-right" ". section5-content section5-content section5-content section5-content section5-content section5-right section5-right section5-right section5-right" ". section5-content section5-content section5-content section5-content section5-content section5-right section5-right section5-right section5-right" "section5-left section5-left section5-left section5-left section5-left section5-left section5-right section5-right section5-right section5-right" ". . . . . . section6-right section6-right section6-right section6-right" ". section6-title section6-title section6-title section6-title section6-title section6-right section6-right section6-right section6-right" ". section6-content section6-content section6-content section6-content section6-content section6-right section6-right section6-right section6-right" ". section6-content section6-content section6-content section6-content section6-content section6-right section6-right section6-right section6-right" "section6-left section6-left section6-left section6-left section6-left section6-left section6-right section6-right section6-right section6-right";
+}
+
+body .container .slider {
+  width: 5%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .slider .slider-sections-parent {
+  width: 0.2%;
+  height: 25%;
+  position: fixed;
+}
+
+body .container .slider .slider-sections-parent .header-section, body .container .slider .slider-sections-parent .section1, body .container .slider .slider-sections-parent .section2, body .container .slider .slider-sections-parent .section3, body .container .slider .slider-sections-parent .section4, body .container .slider .slider-sections-parent .section5, body .container .slider .slider-sections-parent .section6 {
+  width: 100%;
+  height: calc(100%/6);
+  background-color: #808080;
+}
+
+body .container .slider .slider-sections-parent .header-section {
+  background-color: #f4f4f9;
+}
+
+body .container .hamburger_parent {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 10vh;
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 10000000;
+}
+
+body .container .hamburger_parent .hamburger {
+  width: 3vh;
+  height: 3vh;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  position: relative;
+}
+
+body .container .hamburger_parent .hamburger .hamburgerTopLine, body .container .hamburger_parent .hamburger .hamburgerMiddleLine, body .container .hamburger_parent .hamburger .hamburgerBottomLine {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  background-color: #000000;
+}
+
+body .container .hamburger_parent .hamburger .hamburgerTopLine {
+  top: 0;
+}
+
+body .container .hamburger_parent .hamburger .hamburgerMiddleLine {
+  top: calc(85%/2);
+}
+
+body .container .hamburger_parent .hamburger .hamburgerBottomLine {
+  bottom: 0;
+}
+
+body .container .hamburger_parent .hamburger--active {
+  -webkit-animation: rotateHamburger .5s ease-in-out;
+          animation: rotateHamburger .5s ease-in-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .container .navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 10vh;
+  width: 40vw;
+  z-index: 1000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #808080;
+  opacity: 0;
+  -webkit-animation: opacityNavigation .5s ease-in-out;
+          animation: opacityNavigation .5s ease-in-out;
+}
+
+body .container .navigation ul {
+  list-style: none;
+  width: 80%;
+}
+
+body .container .navigation ul li {
+  display: inline-block;
+  margin: 4%;
+}
+
+body .container .navigation ul li span {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1rem;
+}
+
+body .container .header-title {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: header-title;
+  color: #f4f4f9;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+body .container .header-title::after {
+  content: '';
+  display: inline-block;
+  -webkit-transform: translateY(-30%);
+          transform: translateY(-30%);
+  margin-right: 95%;
+  width: 5%;
+  height: 3%;
+  background-color: #f4f4f9;
+}
+
+body .container .header-subtitle {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: header-subtitle;
+  color: #f4f4f9;
+  font-size: 1rem;
+  padding-right: 10%;
+}
+
+body .container .arrow {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-area: arrow;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .header-left {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: header-left;
+}
+
+body .container .header-right {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 4;
+  grid-area: header-right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f4f4f9;
+}
+
+body .container .header-right img {
+  width: 80%;
+}
+
+body .container .section1-title {
+  -ms-grid-row: 7;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section1-title;
+  background-color: aqua;
+}
+
+body .container .section1-content {
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section1-content;
+  background-color: bisque;
+}
+
+body .container .section1-left {
+  -ms-grid-row: 10;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: section1-left;
+}
+
+body .container .section1-right {
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 4;
+  grid-area: section1-right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .section2-title {
+  -ms-grid-row: 12;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section2-title;
+  background-color: brown;
+}
+
+body .container .section2-content {
+  -ms-grid-row: 13;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section2-content;
+  background-color: cadetblue;
+}
+
+body .container .section2-left {
+  -ms-grid-row: 15;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: section2-left;
+}
+
+body .container .section2-right {
+  -ms-grid-row: 11;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 4;
+  grid-area: section2-right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .section3-title {
+  -ms-grid-row: 17;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section3-title;
+  background-color: #3d2aa5;
+}
+
+body .container .section3-content {
+  -ms-grid-row: 18;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section3-content;
+  background-color: #a05f95;
+}
+
+body .container .section3-left {
+  -ms-grid-row: 20;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: section3-left;
+}
+
+body .container .section3-right {
+  -ms-grid-row: 16;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 4;
+  grid-area: section3-right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .section4-title {
+  -ms-grid-row: 22;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section4-title;
+  background-color: #3d2aa5;
+}
+
+body .container .section4-content {
+  -ms-grid-row: 23;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section4-content;
+  background-color: #a05f95;
+}
+
+body .container .section4-left {
+  -ms-grid-row: 25;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: section4-left;
+}
+
+body .container .section4-right {
+  -ms-grid-row: 21;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 4;
+  grid-area: section4-right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .section5-title {
+  -ms-grid-row: 27;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section5-title;
+  background-color: #2ea52a;
+}
+
+body .container .section5-content {
+  -ms-grid-row: 28;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section5-content;
+  background-color: #9ca05f;
+}
+
+body .container .section5-left {
+  -ms-grid-row: 30;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: section5-left;
+}
+
+body .container .section5-right {
+  -ms-grid-row: 26;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 4;
+  grid-area: section5-right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .section6-title {
+  -ms-grid-row: 32;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section6-title;
+  background-color: #a52a95;
+}
+
+body .container .section6-content {
+  -ms-grid-row: 33;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-area: section6-content;
+  background-color: #a05f5f;
+}
+
+body .container .section6-left {
+  -ms-grid-row: 35;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: section6-left;
+}
+
+body .container .section6-right {
+  -ms-grid-row: 31;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 4;
+  grid-area: section6-right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@-webkit-keyframes rotateHamburger {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateHamburger {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes opacityNavigation {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacityNavigation {
+  100% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=style.css.map */
